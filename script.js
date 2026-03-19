@@ -180,7 +180,7 @@ async function speak(text) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "api-key": "ap2_6c650c45-4c56-4947-9bfd-6e85ff038add"
+        "api-key": "YOUR_API_KEY"
       },
       body: JSON.stringify({
         voiceId: "en-US-natalie",
