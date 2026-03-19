@@ -177,4 +177,4 @@ VisionVoice AI solves this problem by:
 
 ```bash
 
-git clone https://github.com/yourusername/VisionVoice-AI.git
+git clone (https://github.com/mitalikorade07-web/VisionVoice-AI.git)
