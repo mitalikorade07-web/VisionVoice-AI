@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VisionVoice AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- AI Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#020617,#0f172a);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 420px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+select {
+  padding: 6px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+}
+
+button {
+  padding: 10px 14px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  background: #22c55e;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.emergency {
+  background: red;
+  color: white;
+}
+
+.video-wrapper {
+  position: relative;
+  margin-top: 10px;
+}
+
+video, canvas {
+  width: 100%;
+  border-radius: 12px;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#output {
+  margin-top: 12px;
+  background: #1e293b;
+  padding: 12px;
+  border-radius: 10px;
+  min-height: 60px;
+  line-height: 1.4;
+}
+
+#micStatus {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>👁️ VisionVoice AI</h2>
+
+  <!-- 🌍 Language -->
+  <select id="language">
+    <option value="en">🇺🇸 English</option>
+    <option value="hi">🇮🇳 Hindi</option>
+  </select>
+
+  <br><br>
+
+  <!-- 🎮 Controls -->
+  <button onclick="startNavigation()">🧭 Start Navigation</button>
+  <button onclick="stopNavigation()">⏹ Stop</button>
+  <button onclick="scan()">📸 Scan</button>
+  <button class="emergency" onclick="emergency()">🚨 Emergency</button>
+  <button onclick="flipCamera()">🔄 Flip Camera</button>
+
+  <!-- 🎥 Camera + AI Canvas -->
+  <div class="video-wrapper">
+    <video id="camera" autoplay muted playsinline></video>
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <!-- 📢 Output -->
+  <div id="output">
+    Say: "What do you see?" / "सामने क्या है?"
+  </div>
+
+  <!-- 🎤 Mic Status -->
+  <div id="micStatus">
+    🎤 Listening...
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
