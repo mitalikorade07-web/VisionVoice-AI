@@ -146,7 +146,7 @@ Allow camera & microphone permissions when prompted.
 
 👨‍💻 Author
 
-Mayur Patil
+Mitali Korade
 🚀 Passionate about AI, Web Development & Real-world problem solving
 
 ---
